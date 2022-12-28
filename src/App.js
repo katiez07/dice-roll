@@ -26,20 +26,24 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Dice
-        // colors={[
-        //   "#fef0fe",
-        //   "#0ffefe",
-        //   "#0a0afa",
-        //   "#1f98f3",
-        //   "#001000",
-        //   "#4ff44f",
-        // ]}
-        numbers={dice}
-      />
-      <button onClick={rollDice}>Roll Dice</button>
-    </div>
+    <>
+      <div className="App">
+        <Dice
+          // colors={[
+          //   "#fef0fe",
+          //   "#0ffefe",
+          //   "#0a0afa",
+          //   "#1f98f3",
+          //   "#001000",
+          //   "#4ff44f",
+          // ]}
+          numbers={dice}
+        />
+      </div>
+      <div>
+        <button onClick={rollDice}>Roll Dice</button>
+      </div>
+    </>
   );
 }
 
