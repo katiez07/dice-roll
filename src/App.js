@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Dice from "./Dice.jsx";
+
+function getRandomDieNumber() {
+  const min = 1;
+  const max = 6;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 function App() {
+  function randomDice() {
+    return [
+      getRandomDieNumber(),
+      getRandomDieNumber(),
+      getRandomDieNumber(),
+      getRandomDieNumber(),
+      getRandomDieNumber(),
+      getRandomDieNumber(),
+    ];
+  }
+
+  const [dice, setDice] = React.useState(randomDice());
+
+  function rollDice() {
+    setDice(randomDice());
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Dice
+        // colors={[
+        //   "#fef0fe",
+        //   "#0ffefe",
+        //   "#0a0afa",
+        //   "#1f98f3",
+        //   "#001000",
+        //   "#4ff44f",
+        // ]}
+        numbers={dice}
+      />
+      <button onClick={rollDice}>Roll Dice</button>
     </div>
   );
 }
